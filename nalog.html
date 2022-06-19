@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Калькулятор</title>
+</head>
+
+
+<body>
+
+  <form NAME="Form1">
+    <p><b>Какая у вас ЗП?</b></p>
+    <INPUT TYPE="number" id="salary" class="value" placeholder="Enter an integer" />
+
+    <p><b>Ваш подоходный налог 13%?</b></p>
+    <INPUT TYPE="radio" name="Nalog" id="da" value="Yes">Да
+    <INPUT TYPE="radio" name="Nalog" id="net" value="No">Нет
+
+    <br>Посчитаем сумму налога?
+    <INPUT TYPE="button" value="Посчитать" id="submit">
+
+    <p id="result"></p>
+  </form>
+
+  <script>
+    var output = document.getElementById("result");
+    var btn = document.getElementById("submit");
+
+    btn.addEventListener("click", solve);
+
+    function solve() {
+      var input = document.getElementById("salary").value;
+      output.innerHTML = "";
+      if (document.Form1.Nalog[0].checked) {
+        output.innerHTML = input * 0.13;
+      } else {
+        output.innerHTML = 0;
+      }
+    }
+  </script>
+
+</body>
+
+</html>
